@@ -1,0 +1,14 @@
+#initiate DOC object
+$Word = NEW-OBJECT -comobject WORD.PPLICATION
+
+#get the list of the DOCx files from the folder 
+
+$Files = get-childitem 'folder \*.doc*'
+
+foreach( $file in $files){
+$Doc=$Word.Documents.Open($File.fullname)
+$name=($Doc.fullname).replace("docx","pdf")
+$DOC.saveas([ref] $name, [ref] 17)
+#saves the files are winword 2013/2010 version
+$Doc.close()
+}
