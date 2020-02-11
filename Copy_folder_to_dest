@@ -1,0 +1,3 @@
+$source ='c:\'
+$dest='D:\'
+Get-Childitem -Path $source -filter *.xls* -Recurse -File | where-object {$_.length -gt 25KB} | Copy-item -Destination $dest
