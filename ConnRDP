@@ -1,0 +1,17 @@
+Function ConnectRDP {
+    Param
+    (
+        [Parameter(Mandatory=$true,
+                   ValueFromPipelineByPropertyName=$true,
+                   Position=0)]
+        $Connection
+    )
+    do
+    {
+        $TestConn = (Test-NetConnection -ComputerName $Connection -CommonTCPPort RDP).TcpTestSucceeded
+    }
+    until ($TestConn -eq "True")
+    $TestConn
+    $Connection
+  mstsc /v:$Connection
+}
