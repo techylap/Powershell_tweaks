@@ -1,0 +1,1 @@
+$lastboot = Get-WmiObject -ComputerName "SPMGMTDB001" win32_operatingsystem | select @{Name="LastBootUpTime";Expression={$_.ConverttoDateTime($_.lastbootuptime)}} | Select-Object -Property lastbootuptime
