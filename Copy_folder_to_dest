@@ -1,3 +1,9 @@
 $source ='c:\'
 $dest='D:\'
 Get-Childitem -Path $source -filter *.xls* -Recurse -File | where-object {$_.length -gt 25KB} | Copy-item -Destination $dest
+
+##to move folder
+ Move-Item -path \\vkdcfas01\HSSBC_DBS\Jeevan\pics0313 -destination D:\pics03132020
+ 
+ 
+ Get-Childitem . -recurse -include *.doc | move-item -dest C:\mydocs
